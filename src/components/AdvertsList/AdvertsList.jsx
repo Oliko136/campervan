@@ -13,8 +13,8 @@ const AdvertsList = () => {
     const dispatch = useDispatch();
     useEffect(() => { dispatch(fetchAdverts()) }, [dispatch]);
 
-    const cards = adverts.map(({ _id, name, price, rating, location, description, gallery }) =>
-        <AdvertsCard key={_id} name={name} price={price} rating={rating} location={location} description={description} gallery={gallery} />);
+    const cards = adverts.map((advert) =>
+        <AdvertsCard key={advert._id} advert={advert} />);
 
     return (
         <>
