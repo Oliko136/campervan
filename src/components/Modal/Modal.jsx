@@ -13,8 +13,13 @@ const Modal = ({ close, children }) => {
 
     useEffect(() => {
         document.addEventListener('keydown', closeModal);
+        document.body.style.overflow = 'hidden';
 
-        return document.removeEventListener('keydown', closeModal);
+        return () => {
+            document.removeEventListener('keydown', closeModal)
+            document.body.style.overflow = 'unset';
+        }
+            
     }, [closeModal])
 
     return createPortal((

@@ -1,8 +1,16 @@
+import { useState } from "react";
 import Features from "components/Features/Features";
+import Modal from "components/Modal/Modal";
 
 const AdvertsCard = ({ advert }) => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     const { name, price, rating, reviews, location, description, gallery } = advert;
     const reviewsCount = reviews.length;
+
+    const handleToggleModal = () => {
+        setIsModalOpen(prevState => !prevState);
+    }
 
     return (
         <li>
@@ -16,7 +24,9 @@ const AdvertsCard = ({ advert }) => {
             <p>{description}</p>
             <Features advert={advert}/>
             <img src={gallery[0]} alt={name} />
-            <button type="button">Show more</button>
+            <button type="button" onClick={handleToggleModal}>Show more</button>
+
+            {isModalOpen && <Modal close={handleToggleModal} />}
         </li>
     )
 }

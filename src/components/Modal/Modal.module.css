@@ -7,11 +7,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.8);
     z-index: 1200;
+    background-color: rgba(17, 18, 19, 0.4);
 }
 
 .Modal {
-    max-width: calc(100vw - 48px);
-    max-height: calc(100vh - 24px);
+    border-radius: 20px;
+    padding: 40px;
+    width: 982px;
+    height: 720px;
+    background-color: #fff;
 }
