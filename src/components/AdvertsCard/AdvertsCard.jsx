@@ -1,12 +1,14 @@
-import { useState } from "react";
-import Features from "components/Features/Features";
+import { useState, useMemo } from "react";
+import FeaturesList from "components/FeaturesList/FeaturesList";
 import Modal from "components/Modal/Modal";
+import CamperModal from "components/CamperModal/CamperModal";
 
 const AdvertsCard = ({ advert }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const { name, price, rating, reviews, location, description, gallery } = advert;
-    const reviewsCount = reviews.length;
+
+    const memoizedAdvert = useMemo(() => advert, [advert]);
 
     const handleToggleModal = () => {
         setIsModalOpen(prevState => !prevState);
@@ -18,16 +20,21 @@ const AdvertsCard = ({ advert }) => {
             <p>€{price}</p>
             <button type="button">Add to favorites</button>
 
-            <p>{rating}({reviewsCount} Reviews)</p>
+            <p>{rating}({reviews.length} Reviews)</p>
             <p>{location}</p>
 
             <p>{description}</p>
-            <Features advert={advert}/>
+            <FeaturesList advert={memoizedAdvert}/>
             <img src={gallery[0]} alt={name} />
             <button type="button" onClick={handleToggleModal}>Show more</button>
 
-            {isModalOpen && <Modal close={handleToggleModal} />}
+            {isModalOpen &&
+                <Modal close={handleToggleModal}>
+                    <CamperModal advert={memoizedAdvert} />
+                </Modal>}
         </li>
+        
+        
     )
 }
 

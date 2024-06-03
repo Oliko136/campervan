@@ -1,7 +1,11 @@
-const Features = ({ advert }) => {
-    const { adults, transmission, engine, details } = advert;
+import React from "react";
 
-    return (
+const FeaturesList = ({ advert }) => {
+    try {
+        console.log('Rendering FeaturesList with advert: ', advert);
+
+        const { adults, transmission, engine, details } = advert;
+        return (
         <ul>
             <li>{adults} adults</li>
             <li>{transmission}</li>
@@ -23,6 +27,9 @@ const Features = ({ advert }) => {
             {details.water !== "" && <li>Water</li>}
         </ul>
     )
+    } catch (error) {
+        console.error("Error in Features List component: ", error);
+    } 
 }
 
-export default Features;
+export default FeaturesList;

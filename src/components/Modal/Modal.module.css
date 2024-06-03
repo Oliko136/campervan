@@ -17,4 +17,5 @@
     width: 982px;
     height: 720px;
     background-color: #fff;
+    overflow: scroll;
 }
