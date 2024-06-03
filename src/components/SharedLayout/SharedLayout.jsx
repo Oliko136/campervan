@@ -1,13 +1,14 @@
 import { Suspense } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import Loader from "components/Loader/Loader";
+import { Header, NavList } from "./SharedLayout.styled";
 
 const SharedLayout = () => {
     return (
         <>
-            <header>
+            <Header>
                 <nav>
-                    <ul>
+                    <NavList>
                         <li>
                             <NavLink to="/">Home</NavLink>
                         </li>
@@ -17,9 +18,9 @@ const SharedLayout = () => {
                         <li>
                             <NavLink to="/favorites">Favorites</NavLink>
                         </li>
-                    </ul>
+                    </NavList>
                 </nav>
-            </header>
+            </Header>
             <main>
                 <Suspense fallback={<Loader />}>
                     <Outlet />

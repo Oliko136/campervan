@@ -50,6 +50,7 @@ button {
 }
 
 a {
+  color: currentColor;
   text-decoration: none;
 }
 
