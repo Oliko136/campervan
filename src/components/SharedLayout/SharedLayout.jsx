@@ -1,8 +1,9 @@
 import { Suspense } from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Loader from "components/Loader/Loader";
-import { Header, NavList } from "./SharedLayout.styled";
+import { Header, NavList, NavListLink } from "./SharedLayout.styled";
 import { Container } from "components/Container/Container.styled";
+import { Section } from "components/Section/Section.styled";
 
 const SharedLayout = () => {
     return (
@@ -12,13 +13,13 @@ const SharedLayout = () => {
                     <nav>
                         <NavList>
                             <li>
-                                <NavLink to="/">Home</NavLink>
+                                <NavListLink to="/">Home</NavListLink>
                             </li>
                             <li>
-                                <NavLink to="/catalog">Catalog</NavLink>
+                                <NavListLink to="/catalog">Catalog</NavListLink>
                             </li>
                             <li>
-                                <NavLink to="/favorites">Favorites</NavLink>
+                                <NavListLink to="/favorites">Favorites</NavListLink>
                             </li>
                         </NavList>
                     </nav>
@@ -26,9 +27,11 @@ const SharedLayout = () => {
             </Header>
             <main>
                 <Container>
-                    <Suspense fallback={<Loader />}>
-                        <Outlet />
-                    </Suspense>
+                    <Section>
+                        <Suspense fallback={<Loader />}>
+                            <Outlet />
+                        </Suspense>
+                    </Section>
                 </Container>
             </main>
         </>
