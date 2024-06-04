@@ -18,3 +18,22 @@ export const PrimaryButton = styled.button`
         background-color: #d84343;
     }
 `
+
+export const SecondaryBtn = styled.button`
+    border: 1px solid rgba(71, 84, 103, 0.2);
+    border-radius: 200px;
+    padding: 16px 32px;
+    margin-top: 50px;
+    min-width: 145px;
+    height: 56px;
+
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover,
+    &:focus {
+        border: 1px solid #e44848;
+    }
+`
