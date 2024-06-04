@@ -8,6 +8,7 @@ import { NamePrice, ReviewsWrap, ReviewsText, LocationWrap, LocationText } from 
 import {
     CamperHeader, CamperReviewsLocationWrap,
     CamperMain, CamperGallery, CamperDescription,
+    CamperTabList, CamperTabButton,
     CamperBottomSection, CamperFeatures
 } from "./CamperModal.styled";
 import formatPrice from "helpers/format-price";
@@ -42,14 +43,15 @@ const CamperModal = ({ advert }) => {
                 </CamperGallery>
                 <CamperDescription>{description}</CamperDescription>
                 
-                <ul>
+                <CamperTabList>
                     <li>
-                        <button type="button" onClick={() => setShownReviews(false)}>Features</button>
+                        <CamperTabButton type="button" onClick={() => setShownReviews(false)}>Features</CamperTabButton>
                     </li>
                     <li>
-                        <button type="button" onClick={() => setShownReviews(true)}>Reviews</button>
+                        <CamperTabButton type="button" onClick={() => setShownReviews(true)}>Reviews</CamperTabButton>
                     </li>
-                </ul>
+                </CamperTabList>
+
                 <CamperBottomSection>
                     {shownReviews ?
                         <Reviews advert={advert} /> :

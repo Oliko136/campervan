@@ -24,6 +24,22 @@ export const CamperDescription = styled.p`
     text-align: justify;
 `
 
+export const CamperTabList = styled.ul`
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-bottom: 44px;
+    gap: 40px;
+    border-bottom: 1px solid rgba(16, 24, 40, 0.2);
+`
+
+export const CamperTabButton = styled.button`
+    padding-bottom: 24px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.2;
+`
+
 export const CamperBottomSection = styled.div`
     display: flex;
     gap: 24px;
