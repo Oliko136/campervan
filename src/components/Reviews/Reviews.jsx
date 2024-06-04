@@ -1,20 +1,20 @@
 import ReviewsItem from "./ReviewsItem";
+import { ReviewsList } from "./Reviews.styled";
 
 const Reviews = ({ advert }) => {
-    try {
-        console.log('Rendering Reviews with advert: ', advert);
-        const { reviews } = advert;
-
-        const items = reviews.map(review => <ReviewsItem review={review} />)
-        return reviews && (
-            <ul>
-                {items}
-            </ul>
-        )
-    } catch (error) {
-        console.error("Error in Reviews component: ", error);
-        return <div>Failed to load reviews</div>;
-    }
+    const { reviews } = advert;
+    
+    const items = reviews.map(review =>
+        <ReviewsItem
+            key={review.reviewer_name}
+            review={review} />
+    )
+    
+    return reviews && (
+        <ReviewsList>
+            {items}
+        </ReviewsList>
+    )
 }
 
 export default Reviews;
