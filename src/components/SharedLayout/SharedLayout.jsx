@@ -3,7 +3,6 @@ import { Outlet } from "react-router-dom";
 import Loader from "components/Loader/Loader";
 import { Header, NavList, NavListLink } from "./SharedLayout.styled";
 import { Container } from "components/Container/Container.styled";
-import { Section } from "components/Section/Section.styled";
 
 const SharedLayout = () => {
     return (
@@ -26,13 +25,9 @@ const SharedLayout = () => {
                 </Container>
             </Header>
             <main>
-                <Container>
-                    <Section>
-                        <Suspense fallback={<Loader />}>
-                            <Outlet />
-                        </Suspense>
-                    </Section>
-                </Container>
+                <Suspense fallback={<Loader />}>
+                    <Outlet />
+                </Suspense>
             </main>
         </>
        
