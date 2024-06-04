@@ -5,11 +5,13 @@ import Modal from "components/Modal/Modal";
 import CamperModal from "components/CamperModal/CamperModal";
 import {
     Card, CardImageWrap, CardImage,
-    CardDetailsWrap, CardHeader, NamePrice,
+    CardDetailsWrap, CardHeader, NamePrice, PriceFavoriteWrap,
     ReviewsLocationWrap, ReviewsWrap, LocationWrap, ReviewsText, LocationText,
-    CardDescription
+    CardDescription, CardFeaturesWrap
 } from "./AdvertsCard.styled";
 import { PrimaryButton } from "components/Button/Button.styled";
+import formatPrice from "helpers/format-price";
+import reverseLocation from "helpers/reverse-location";
 
 const AdvertsCard = ({ advert }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -31,8 +33,13 @@ const AdvertsCard = ({ advert }) => {
             <CardDetailsWrap>
                 <CardHeader>
                     <NamePrice>{name}</NamePrice>
-                    <NamePrice>&euro;{price}</NamePrice>
-                    <button type="button">Add to favorites</button>
+
+                    <PriceFavoriteWrap>
+                        <NamePrice>&euro;{formatPrice(price)}</NamePrice>
+                        <button type="button">
+                            <Icon width='24px' height='24px' fill='none' stroke='#101828' name='icon-heart' />
+                        </button>
+                    </PriceFavoriteWrap>
                 </CardHeader>
 
                 <ReviewsLocationWrap>
@@ -42,13 +49,16 @@ const AdvertsCard = ({ advert }) => {
                     </ReviewsWrap>
                     <LocationWrap>
                         <Icon width='16px' height='16px' fill='none' stroke='#101828' name='icon-location'/>
-                        <LocationText>{location}</LocationText>
+                        <LocationText>{reverseLocation(location)}</LocationText>
                     </LocationWrap>
                 </ReviewsLocationWrap>
     
                 <CardDescription>{description}</CardDescription>
-                <FeaturesList advert={memoizedAdvert}/>
-                
+
+                <CardFeaturesWrap>
+                    <FeaturesList advert={memoizedAdvert} />
+                </CardFeaturesWrap>
+        
                 <PrimaryButton type="button" onClick={handleToggleModal}>Show more</PrimaryButton>
                     
                 {isModalOpen &&

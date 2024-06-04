@@ -1,35 +1,93 @@
-import React from "react";
+import Icon from "components/Icon/Icon";
+import { Features, FeaturesItem } from "./FeaturesList.styled";
 
 const FeaturesList = ({ advert }) => {
-    try {
-        console.log('Rendering FeaturesList with advert: ', advert);
+    const { adults, transmission, engine, details } = advert;
 
-        const { adults, transmission, engine, details } = advert;
-        return (
-        <ul>
-            <li>{adults} adults</li>
-            <li>{transmission}</li>
-            {details.airConditioner > 0 && <li>AC</li>}
-            <li>{engine}</li>
-            {details.kitchen > 0 && <li>Kitchen</li>}
-            {details.freezer > 0 && <li>Freezer</li>}
-            {details.microwave > 0 && <li>Microwave</li>}
-            {details.bathroom > 0 && <li>Bathroom</li>}
-            {details.toilet > 0 && <li>Toilet</li>}
-            {details.shower > 0 && <li>Shower</li>}
-            <li>{details.airConditioner} air conditioner</li>
-            {details.CD > 0 && <li>CD</li>}
-            {details.radio > 0 && <li>Radio</li>}
-            {details.TV > 0 && <li>TV</li>}
-            <li>{details.beds} beds</li>
-            <li>{details.hob} hob</li>
-            {details.gas !== "" && <li>Gas</li>}
-            {details.water !== "" && <li>Water</li>}
-        </ul>
+    return (
+        <Features>
+            <FeaturesItem>
+                <Icon width='20px' height='20px' fill='#101828' name='icon-people' />
+                {adults} adults
+            </FeaturesItem>
+            <FeaturesItem>
+                <Icon width='20px' height='20px' fill='none' stroke='#101828' name='icon-transmission' />
+                {transmission}
+            </FeaturesItem>
+            {details.airConditioner > 0 &&
+                <FeaturesItem>
+                    <Icon width='20px' height='20px' fill='none' stroke='#101828' name='icon-air' />
+                    AC
+                </FeaturesItem>}
+            <FeaturesItem>
+                <Icon width='20px' height='20px' fill='#101828' name='icon-petrol' />
+                {engine}
+            </FeaturesItem>
+            {details.kitchen > 0 &&
+                <FeaturesItem>
+                    <Icon width='20px' height='20px' fill='none' stroke='#101828' name='icon-kitchen' />
+                    Kitchen
+                </FeaturesItem>}
+            {details.freezer > 0 &&
+                <FeaturesItem>
+                    <Icon width='20px' height='20px' fill='none' stroke='#101828' name='icon-freezer' />
+                    Freezer
+                </FeaturesItem>}
+            {details.microwave > 0 &&
+                <FeaturesItem>
+                    <Icon width='20px' height='20px' fill='none' stroke='#101828' name='icon-microwave' />
+                    Microwave
+                </FeaturesItem>}
+            {details.toilet > 0 &&
+                <FeaturesItem>
+                    <Icon width='20px' height='20px' fill='#101828' name='icon-toilet-paper' />
+                    Toilet
+                </FeaturesItem>}
+            {details.shower > 0 &&
+                <FeaturesItem>
+                    <Icon width='20px' height='20px' fill='none' stroke='#101828' name='icon-shower' />
+                    Shower
+                </FeaturesItem>}
+            <FeaturesItem>
+                <Icon width='20px' height='20px' fill='none' stroke='#101828' name='icon-air-conditioner' />
+                {details.airConditioner}
+                air conditioner
+            </FeaturesItem>
+            {details.CD > 0 &&
+                <FeaturesItem>
+                    <Icon width='20px' height='20px' fill='none' stroke='#101828' name='icon-cd' />
+                    CD
+                </FeaturesItem>}
+            {details.radio > 0 &&
+                <FeaturesItem>
+                    <Icon width='20px' height='20px' fill='none' stroke='#101828' name='icon-radio' />
+                    Radio
+                </FeaturesItem>}
+            {details.TV > 0 &&
+                <FeaturesItem>
+                    <Icon width='20px' height='20px' fill='none' stroke='#101828' name='icon-tv' />
+                    TV
+                </FeaturesItem>}
+            <FeaturesItem>
+                <Icon width='20px' height='20px' fill='none' stroke='#101828' name='icon-bed' />
+                {details.beds} beds
+            </FeaturesItem>
+            <FeaturesItem>
+                <Icon width='20px' height='20px' fill='#101828' name='icon-hob' />
+                {details.hob} hob
+            </FeaturesItem>
+            {details.gas !== "" &&
+                <FeaturesItem>
+                    <Icon width='20px' height='20px' fill='#101828' name='icon-gas' />
+                    Gas
+                </FeaturesItem>}
+            {details.water !== "" &&
+                <FeaturesItem>
+                    <Icon width='20px' height='20px' fill='none' stroke='#101828' name='icon-water' />
+                    Water
+                </FeaturesItem>}
+        </Features>
     )
-    } catch (error) {
-        console.error("Error in Features List component: ", error);
-    } 
 }
 
 export default FeaturesList;

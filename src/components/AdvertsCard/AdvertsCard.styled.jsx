@@ -45,6 +45,12 @@ export const NamePrice = styled.p`
     color: #101828;
 `
 
+export const PriceFavoriteWrap = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 10px;
+`
+
 export const ReviewsLocationWrap = styled.div`
     display: flex;
     gap: 16px;
@@ -80,5 +86,9 @@ export const CardDescription = styled.p`
     text-overflow: ellipsis;
     white-space: nowrap;
     margin-bottom: 24px;
-    
+`
+export const CardFeaturesWrap = styled.div`
+    height: 96px;
+    overflow: hidden;
+    margin-bottom: 20px;
 `
