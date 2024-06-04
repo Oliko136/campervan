@@ -1,5 +1,5 @@
 import styled from "styled-components";
 
 export const Section = styled.section`
-    padding-top: 98px;
+    padding: 98px 0;
 `
