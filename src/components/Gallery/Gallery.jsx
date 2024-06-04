@@ -1,28 +1,16 @@
+import { GalleryList, GalleryItem } from "./Gallery.styled";
+
 const Gallery = ({ gallery, alt }) => {
-    try {
-        console.log('Rendering Gallery with gallery: ', gallery);
-        return (
-            <div>
-                {gallery.map((image, index) => (
-                    <img key={index} src={image} alt={alt} />
-                ))}
-            </div>
-        );
-    } catch (error) {
-        console.error("Error in Gallery component: ", error);
-        return <div>Failed to load gallery</div>;
-    }
-}
-/*
     const items = gallery.map(item =>
-        <li key={item.indexOf}>
+        <GalleryItem key={`${item.indexOf}_${alt}`}>
             <img src={item} alt={alt} />
-        </li>);
+        </GalleryItem>);
+    
     return (
-        <ul>
+        <GalleryList>
             {items}
-        </ul>
+        </GalleryList>
     )
-}*/
+}
 
 export default Gallery;

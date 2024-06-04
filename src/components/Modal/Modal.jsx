@@ -1,6 +1,7 @@
 import { useCallback, useEffect } from "react";
 import { createPortal } from "react-dom";
-import styles from './Modal.module.css';
+import Icon from "components/Icon/Icon";
+import { Overlay, ModalWindow, CloseBtn } from "./Modal.styled";
 
 const modalRoot = document.getElementById('modal-root');
 
@@ -17,18 +18,20 @@ const Modal = ({ close, children }) => {
 
         return () => {
             document.removeEventListener('keydown', closeModal)
-            document.body.style.overflow = 'unset';
+            document.body.style.overflow = 'auto';
         }
             
     }, [closeModal])
 
     return createPortal((
-        <div onClick={closeModal} className={styles.Overlay}>
-            <div className={styles.Modal}>
-                <button type="button" onClick={closeModal}>Close</button>
+        <Overlay onClick={closeModal}>
+            <ModalWindow>
+                <CloseBtn type="button" onClick={closeModal}>
+                    <Icon width='32px' height='32px' stroke='#101828' name='icon-close' />
+                </CloseBtn>
                 {children}
-            </div>
-        </div>
+            </ModalWindow>
+        </Overlay>
     ), modalRoot)
 }
 
