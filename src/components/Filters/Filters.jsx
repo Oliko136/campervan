@@ -1,6 +1,21 @@
+import Icon from "components/Icon/Icon";
+
 const Filters = () => {
     return (
-        <h2>Filters</h2>
+        <>
+            <form>
+                <label>
+                    Location
+                    <input placeholder="City" name="location" />
+                    <Icon width='18px' height='20px' fill='none' stroke='#101828' name='icon-location'/>
+                </label>
+                <button type="submit">Search</button>
+
+                <div>
+                    Filters
+                </div>
+            </form>
+        </>
     )
 }
 
