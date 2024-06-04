@@ -56,12 +56,12 @@ a {
 
 input, 
 textarea {
-    font-family: inherit;
+  font-family: inherit;
 }
 
 input:focus,
 textarea:focus {
-    outline: none;
+  outline: none;
 }
 
 img {
