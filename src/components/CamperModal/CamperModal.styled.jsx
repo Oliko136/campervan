@@ -11,6 +11,8 @@ export const CamperReviewsLocationWrap = styled.div`
 `
 
 export const CamperMain = styled.div`
+    height: 75%;
+    overflow: scroll;
 `
 
 export const CamperGallery = styled.div`

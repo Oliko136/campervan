@@ -20,7 +20,7 @@ export const ModalWindow = styled.div`
     width: 982px;
     height: 720px;
     background-color: #fff;
-    overflow-y: auto;
+    overflow: hidden;
 `
 
 export const CloseBtn = styled.button`
