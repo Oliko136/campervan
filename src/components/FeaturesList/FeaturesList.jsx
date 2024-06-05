@@ -50,8 +50,7 @@ const FeaturesList = ({ advert }) => {
                 </FeaturesItem>}
             <FeaturesItem>
                 <Icon width='20px' height='20px' fill='none' stroke='#101828' name='icon-air-conditioner' />
-                {details.airConditioner}
-                air conditioner
+                {details.airConditioner} air conditioner
             </FeaturesItem>
             {details.CD > 0 &&
                 <FeaturesItem>

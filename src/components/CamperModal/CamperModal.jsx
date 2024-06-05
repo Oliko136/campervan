@@ -4,6 +4,7 @@ import Gallery from "components/Gallery/Gallery";
 import FeaturesList from "components/FeaturesList/FeaturesList";
 import VehicleDetails from "components/VehicleDetails/VehicleDetails";
 import Reviews from "components/Reviews/Reviews";
+import BookingForm from "components/BookingForm/BookingForm";
 import { NamePrice, ReviewsWrap, ReviewsText, LocationWrap, LocationText } from "components/AdvertsCard/AdvertsCard.styled";
 import {
     CamperHeader, CamperReviewsLocationWrap,
@@ -60,7 +61,7 @@ const CamperModal = ({ advert }) => {
                             <VehicleDetails advert={advert} />
                         </CamperFeatures>
                     }
-                    <p>Book your campervan now!</p>
+                    <BookingForm />
                 </CamperBottomSection>
                 
             </CamperMain>
