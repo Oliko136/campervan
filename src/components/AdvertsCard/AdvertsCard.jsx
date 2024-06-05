@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Icon from "components/Icon/Icon";
 import FeaturesList from "components/FeaturesList/FeaturesList";
 import Modal from "components/Modal/Modal";
@@ -10,6 +11,8 @@ import {
     CardDescription, CardFeaturesWrap
 } from "./AdvertsCard.styled";
 import { PrimaryButton } from "components/Button/Button.styled";
+import { addToFavorites, removeFromFavorites } from "../../redux/adverts/adverts-slice";
+import { selectFavorites } from "../../redux/adverts/adverts-selectors";
 import formatPrice from "helpers/format-price";
 import reverseLocation from "helpers/reverse-location";
 
@@ -19,6 +22,19 @@ const AdvertsCard = ({ advert }) => {
     const { name, price, rating, reviews, location, description, gallery } = advert;
 
     const memoizedAdvert = useMemo(() => advert, [advert]);
+
+    const dispatch = useDispatch();
+    const favorites = useSelector(selectFavorites);
+
+    const isFavorite = () => {
+        favorites.find(favorite => favorite._id === advert._id)
+    }
+
+    const handleToggleFavorite = (advert) => {
+        isFavorite ?
+            dispatch(removeFromFavorites(advert._id)) :
+            dispatch(addToFavorites(advert._id))
+    }
 
     const handleToggleModal = () => {
         setIsModalOpen(prevState => !prevState);
@@ -36,7 +52,8 @@ const AdvertsCard = ({ advert }) => {
 
                     <PriceFavoriteWrap>
                         <NamePrice>&euro;{formatPrice(price)}</NamePrice>
-                        <button type="button">
+                        <button type="button" onClick={() => handleToggleFavorite(memoizedAdvert)}
+              $isFavorite={isFavorite}>
                             <Icon width='24px' height='24px' fill='none' stroke='#101828' name='icon-heart' />
                         </button>
                     </PriceFavoriteWrap>

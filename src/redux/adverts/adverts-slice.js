@@ -7,8 +7,20 @@ const advertsSlice = createSlice({
     name: 'adverts',
     initialState: {
         items: [],
+        favorites: JSON.parse(localStorage.getItem('favorites'))?.favorites ?? [],
         isLoading: false,
         error: null
+    },
+    reducers: {
+        addToFavorites(state, { payload }) {
+            state.favorites = [...state.favorites, ...payload];
+            localStorage.setItem('favorites', JSON.stringify(state.favorites));
+        },
+        
+        removeFromFavorites(state, { payload }) {
+            state.favorites = state.favorites.filter(advert => advert._id !== payload);
+            localStorage.setItem('favorites', JSON.stringify(state.favorites));
+        }
     },
     extraReducers: builder => {
         builder
@@ -23,3 +35,4 @@ const advertsSlice = createSlice({
 });
 
 export const advertsReducer = advertsSlice.reducer;
+export const { addToFavorites, removeFromFavorites } = advertsSlice.actions;
