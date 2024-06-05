@@ -27,6 +27,10 @@ export const ReviewsNameRatingWrap = styled.div`
     flex-direction: column;
     gap: 4px;
 `
+export const ReviewsRatingWrap = styled.div`
+    display: flex;
+    gap: 4px;
+`
 
 export const ReviewsName = styled.h4`
     font-weight: 600;
